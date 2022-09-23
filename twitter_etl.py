@@ -7,10 +7,10 @@ import s3fs
 
 def run_twitter_etl():
 
-    access_key = "u88LUzIHUXUrMV1yGTDKLs1oe"
-    access_secret = "8VSf84NVbtj7L1UQ399Faal3vveq7tKwbgusHeRSGAZ8UDpsP2"
-    consumer_key = "1070169780-bzC64vQOP6LKFGXECbTNZB8vNfZ4O3XcN3nCCeC"
-    consumer_secret = "7TStZjgthxGDviEho6UbidXit4DHIuq5xu2n47NTjI8z0"
+    access_key = ""
+    access_secret = ""
+    consumer_key = ""
+    consumer_secret = ""
 
     # Twitter authentication
     auth = tweepy.OAuthHandler(access_key, access_secret)
@@ -36,6 +36,4 @@ def run_twitter_etl():
 
     tweet_list.append(refined_tweet)
     df = pd.DataFrame(tweet_list)
-    df.to_csv("elonmusk_twitter_data.csv")
-
-    Login with username: admin  password: 6NsyMDBgEwM44W8w
+    df.to_csv("s3://kingsley-twitter-etl-bucket/elonmusk_twitter_data.csv")
